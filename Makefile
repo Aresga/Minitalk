@@ -4,10 +4,8 @@ CFLAG = -Wall -Werror -Wextra
 C_NAME = client
 S_NAME = server
 
-C_SRC = client.c
-S_SRC = server.c
-
-
+C_SRC = src/client.c
+S_SRC = src/server.c
 
 LIBFT = libft/libft.a
 LIBFT_PATH = libft/

@@ -6,11 +6,11 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:47:55 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/30 16:26:01 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/30 17:11:12 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/inc/libft.h"
+#include "../libft/inc/libft.h"
 #include <signal.h>
 
 void	sig_handler(int sig)
@@ -18,7 +18,8 @@ void	sig_handler(int sig)
 	static int				index;
 	static unsigned char	c;
 
-	c = c | (sig == SIGUSR1);
+	if (sig == SIGUSR1)
+		c |= (1 << (7 - index));
 	index++;
 	if (index == 8)
 	{
@@ -29,8 +30,6 @@ void	sig_handler(int sig)
 		index = 0;
 		c = 0;
 	}
-	else
-		c <<= 1;
 }
 
 int	main(void)
