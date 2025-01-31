@@ -71,6 +71,8 @@ time $PATH_TO_CLIENT $p_id "....................................................
 ...................................................................................................
 "
 
+echo "${L_Green} [Speed test]\tTime to print 100 char ${NC}"
+time $PATH_TO_CLIENT $p_id "...................................................................................................."
 
 
 ######## MANDATORY #########
@@ -79,21 +81,21 @@ time $PATH_TO_CLIENT $p_id "....................................................
 if [[ $t1 == 1 || $tm == 1 ]]
 then
     echo "${L_Green} [Test 1]\tBasic test ${NC}"
-    $PATH_TO_CLIENT $p_id "Hello, this is a first test" 
+    time $PATH_TO_CLIENT $p_id "Hello, this is a first test" 
 fi
 
 ### Test 2 ###
 if [[ $t2 == 1 || $tm == 1 ]]
 then
     echo "${L_Green}\n [Test 2]\tEmpty string${NC}"
-    $PATH_TO_CLIENT $p_id "" 
+    time $PATH_TO_CLIENT $p_id "" 
 fi
 
 ### Test 3 ###
 if [[ $t3 == 1 || $tm == 1 ]]
 then
     echo "${L_Green}\n [Test 3]\tSending big str with 20 000 char${NC}"
-    $PATH_TO_CLIENT $p_id "
+    time $PATH_TO_CLIENT $p_id "
 
                                                LL             A
                                                LL            A A
@@ -313,7 +315,7 @@ then
     for i in {1..10}
     do
         echo -n "${L_Green} [ ${i} ]${NC}"
-        $PATH_TO_CLIENT $p_id "
+        time $PATH_TO_CLIENT $p_id "
         ░░░░░░░░░░░░░░░░░░░▒▓▓█████████████▓▓▒░░░░░░░░░░░░░░░░░░░░░░
         ░░░░░░░░░░░░░░▒████▓▓▒▒░▒▒▒░▒▒▒▒▒▒▓▓████▓▒░░░░░░░░░░░░░░░░░░
         ░░░░░░░░░░░▒███▓░░░░░░░░░░░░░░░░░░░░░░▒███████▓▓▒░░░░░░░░░░░
