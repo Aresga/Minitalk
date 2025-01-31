@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:44:13 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/30 17:23:04 by agaga            ###   ########.fr       */
+/*   Updated: 2025/01/31 19:08:48 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	seg_send(int pid, unsigned char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(120);
 	}
 }
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 	}
 	msg = av[2];
 	index = 0;
-	while (msg[index] != '\0')
+	while (msg[index])
 	{
 		seg_send(server_pid, msg[index]);
 		index++;
