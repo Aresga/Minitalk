@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:44:13 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/05 15:49:43 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/05 16:57:09 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,22 @@ void	seg_send(int pid, unsigned char c)
 				exit(EXIT_FAILURE);
 			}
 		}
-		usleep(200);
+		usleep(400);
 	}
+}
+
+int	check_pid(char *pid)
+{
+	int	index;
+
+	index = 0;
+	while (pid[index])
+	{
+		if (!ft_isdigit(pid[index]))
+			return (0);
+		index++;
+	}
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -58,12 +72,12 @@ int	main(int ac, char **av)
 		ft_printf("Usage: %s <PID> <MESSAGE>\n", av[0]);
 		exit(EXIT_FAILURE);
 	}
-	server_pid = ft_atoi(av[1]);
-	if (!ft_isdigit(server_pid) && server_pid < 0)
+	if (!check_pid(av[1]))
 	{
 		ft_printf("Invalid PID\n");
 		exit(EXIT_FAILURE);
 	}
+	server_pid = ft_atoi(av[1]);
 	msg = av[2];
 	index = 0;
 	while (msg[index])

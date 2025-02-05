@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:47:55 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/05 15:52:04 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/05 17:04:46 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <signal.h>
 #include <unistd.h>
 
-void	sig_handler(int sig)
+void	sig_handler(pid_t sig)
 {
 	static int				index;
 	static unsigned char	c;
