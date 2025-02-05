@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:47:55 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/31 23:39:13 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/05 15:52:04 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sig_handler(int sig)
 	if (index == 8)
 	{
 		if (c == '\0')
-			ft_printf("\n");
+			write (1, "\n", 1);
 		else
 			write (1, &c, 1);
 		index = 0;

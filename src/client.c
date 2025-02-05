@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:44:13 by agaga             #+#    #+#             */
-/*   Updated: 2025/01/31 23:49:39 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/05 15:49:43 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+// Thi function sends a signal to the server
+// The signal is either SIGUSR1 or SIGUSR2
+// SIGUSR1 is sent if the bit is 1
+// SIGUSR2 is sent if the bit is 0
 void	seg_send(int pid, unsigned char c)
 {
 	int	index;
@@ -31,7 +35,7 @@ void	seg_send(int pid, unsigned char c)
 				exit(EXIT_FAILURE);
 			}
 		}
-		else
+		else 
 		{
 			if (kill(pid, SIGUSR2) == -1)
 			{
@@ -39,7 +43,7 @@ void	seg_send(int pid, unsigned char c)
 				exit(EXIT_FAILURE);
 			}
 		}
-		usleep(100);
+		usleep(200);
 	}
 }
 
@@ -47,7 +51,7 @@ int	main(int ac, char **av)
 {
 	char		*msg;
 	int			server_pid;
-	size_t		index;
+	int			index;
 
 	if (ac != 3)
 	{
@@ -55,7 +59,7 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	server_pid = ft_atoi(av[1]);
-	if (server_pid < 1)
+	if (!ft_isdigit(server_pid) && server_pid < 0)
 	{
 		ft_printf("Invalid PID\n");
 		exit(EXIT_FAILURE);
