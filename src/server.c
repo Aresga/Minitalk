@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:47:55 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/05 17:04:46 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 17:19:38 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	sig_handler(pid_t sig)
 	if (index == 8)
 	{
 		if (c == '\0')
+		{
 			write (1, "\n", 1);
+			usleep(200);
+		}
 		else
 			write (1, &c, 1);
 		index = 0;

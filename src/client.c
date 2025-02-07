@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:44:13 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/05 16:57:09 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/07 17:18:43 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	seg_send(int pid, unsigned char c)
 				exit(EXIT_FAILURE);
 			}
 		}
-		usleep(400);
+		usleep(500);
 	}
 }
 
