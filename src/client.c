@@ -24,26 +24,13 @@ void	seg_send(int pid, unsigned char c)
 	int	index;
 
 	index = 8;
-	while (index > 0)
+	while (index-- > 0)
 	{
-		index--;
 		if ((c >> index) & 1)
-		{
-			if (kill(pid, SIGUSR1) == -1)
-			{
-				ft_printf("Error sending SIGUSR1\n");
-				exit(EXIT_FAILURE);
-			}
-		}
+			kill(pid, SIGUSR1);
 		else 
-		{
-			if (kill(pid, SIGUSR2) == -1)
-			{
-				ft_printf("Error sending SIGUSR2\n");
-				exit(EXIT_FAILURE);
-			}
-		}
-		usleep(500);
+			kill(pid, SIGUSR2);
+		usleep(800);
 	}
 }
 
@@ -63,7 +50,6 @@ int	check_pid(char *pid)
 
 int	main(int ac, char **av)
 {
-	char		*msg;
 	int			server_pid;
 	int			index;
 
@@ -78,13 +64,12 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	server_pid = ft_atoi(av[1]);
-	msg = av[2];
 	index = 0;
-	while (msg[index])
+	while (av[2][index])
 	{
-		seg_send(server_pid, msg[index]);
+		seg_send(server_pid, av[2][index]);
 		index++;
 	}
-	seg_send(server_pid, '\0');
+	seg_send(server_pid, '\n');
 	return (0);
 }

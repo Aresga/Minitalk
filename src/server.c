@@ -14,23 +14,17 @@
 #include <signal.h>
 #include <unistd.h>
 
-void	sig_handler(pid_t sig)
+void	sig_handler(int sig)
 {
 	static int				index;
 	static unsigned char	c;
 
 	if (sig == SIGUSR1)
-		c |= (1 << (7 - index));
+		c = c | (1 << (7 - index));
 	index++;
 	if (index == 8)
 	{
-		if (c == '\0')
-		{
-			write (1, "\n", 1);
-			usleep(200);
-		}
-		else
-			write (1, &c, 1);
+		write (1, &c, 1);
 		index = 0;
 		c = 0;
 	}

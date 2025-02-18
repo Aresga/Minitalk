@@ -23,11 +23,11 @@ int	ft_putnbr_base(unsigned long n, unsigned int base, int b)
 		symb = "0123456789abcdef";
 	else if (b == 7)
 		symb = "0123456789ABCDEF";
-	if (n < 0)
-	{
-		ft_putchar('-');
-		return (ft_putnbr_base(-n, base, b) + 1);
-	}
+//	if (n < 0)
+//	{
+//		ft_putchar('-');
+//		return (ft_putnbr_base(-n, base, b) + 1);
+//	}
 	if (n < base)
 		return (ft_putchar(symb[n]));
 	else
