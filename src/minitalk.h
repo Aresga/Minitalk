@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 12:17:31 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/26 17:21:03 by agaga            ###   ########.fr       */
+/*   Created: 2025/02/26 17:26:28 by agaga             #+#    #+#             */
+/*   Updated: 2025/02/26 19:52:38 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-int	ft_putnbr_base(unsigned long n, unsigned int base, int b)
+# include "../libft/inc/libft.h"
+# include <signal.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+typedef enum e_error
 {
-	int		i;
-	char	*symb;
+	ERR_ARG,
+	ERR_SIG,
+	ERR_PID,
+}	t_error;
 
-	if (b == 1)
-		symb = "0123456789";
-	else if (b == 6)
-		symb = "0123456789abcdef";
-	else if (b == 7)
-		symb = "0123456789ABCDEF";
-	if (n < base)
-		return (ft_putchar(symb[n]));
-	else
-	{
-		i = ft_putnbr_base(n / base, base, b);
-		return (i + ft_putnbr_base(n % base, base, b));
-	}
-}
+static volatile sig_atomic_t	g_received = 0;
+static pid_t					client_pid = 0;
+
+void	ft_error_handler(t_error error_type);
+int		check_pid(char *pid);
+
+#endif

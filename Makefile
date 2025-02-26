@@ -4,8 +4,10 @@ CFLAG = -Wall -Werror -Wextra
 C_NAME = client
 S_NAME = server
 
-C_SRC = src/client.c
-S_SRC = src/server.c
+C_SRC = src/client.c \
+		src/utils.c
+S_SRC = src/server.c \
+		src/utils.c
 
 LIBFT = libft/libft.a
 LIBFT_PATH = libft/
@@ -13,10 +15,6 @@ LIBFT_PATH = libft/
 OBJDIR = obj
 C_OBJ = $(C_SRC:%.c=$(OBJDIR)/%.o)
 S_OBJ = $(S_SRC:%.c=$(OBJDIR)/%.o)
-
-GREEN = \033[0;32m
-CYAN = \033[0;36m
-CLEAR = \033[0m
 
 all: $(C_NAME) $(S_NAME)
 
@@ -52,3 +50,6 @@ re: fclean all
 
 .PHONY: all clean fclean re 
 
+GREEN = \033[0;32m
+CYAN = \033[0;36m
+CLEAR = \033[0m
