@@ -6,7 +6,7 @@
 /*   By: agaga <agaga@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:44:13 by agaga             #+#    #+#             */
-/*   Updated: 2025/02/26 21:23:02 by agaga            ###   ########.fr       */
+/*   Updated: 2025/02/26 21:25:38 by agaga            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int	main(int ac, char **av)
 		index++;
 	}
 	seg_send(server_pid, '\n');
-	ft_printf("Message sent succesfully\n");
+	// ft_printf("Message sent succesfully\n");
 	return (0);
 }
