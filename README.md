@@ -91,13 +91,6 @@ The project is implemented in C and leverages the basics of Unix signal handling
 - **Asynchronous Handling:** Demonstrates asynchronous event handling using custom signal handlers.
 - **Educational:** Provides a clear example of how low-level IPC can be implemented in C.
 
----
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
 
 ## Author
 
