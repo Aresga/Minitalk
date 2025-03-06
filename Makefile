@@ -34,15 +34,15 @@ $(S_NAME): $(S_OBJ) $(LIBFT)
 	@$(CC) $(CFLAG) -c $< -o $@
 
 $(LIBFT):
-	@$(MAKE) -C $(LIBFT_PATH)
+	@$(MAKE) -sC $(LIBFT_PATH)
 
 clean:
-	@$(MAKE) -C $(LIBFT_PATH) clean
+	@$(MAKE) -sC $(LIBFT_PATH) clean
 	@rm -rf $(OBJDIR)
 	@echo "$(CYAN)✔ Server and Client obj files deleted$(CLEAR)"
 
 fclean: clean
-	@$(MAKE) -C $(LIBFT_PATH) fclean
+	@$(MAKE) -sC $(LIBFT_PATH) fclean
 	@rm -f $(C_NAME) $(S_NAME)
 	@echo "$(CYAN)✔ Server and Client deleted$(CLEAR)"
 

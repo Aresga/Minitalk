@@ -12,13 +12,8 @@ SRC = 	src/ft_atoi.c src/ft_isalnum.c src/ft_isalpha.c src/ft_isascii.c src/ft_i
 	src/ft_putnbr.c src/ft_putptr.c src/ft_putstr.c src/ft_putstr.c src/ft_strlen.c \
 	src/get_next_line.c src/get_next_line_utils.c \
 
-SRC_BONUS = src/ft_lstnew_bonus.c src/ft_lstsize_bonus.c src/ft_lstadd_front_bonus.c src/ft_lstlast_bonus.c \
-	src/ft_lstadd_back_bonus.c src/ft_lstdelone_bonus.c src/ft_lstclear_bonus.c src/ft_lstmap_bonus.c \
-	src/ft_lstiter_bonus.c
-
 OBJDIR = obj
 OBJS = $(SRC:%.c=$(OBJDIR)/%.o)
-OBJS_BONUS = $(SRC_BONUS:%.c=$(OBJDIR)/%.o)
 
 NAME = libft.a
 
@@ -36,12 +31,6 @@ $(NAME): $(OBJS)
 	@ranlib $(NAME)
 	@echo "$(GREEN)✔ $(NAME) created and indxed$(CLEAR)"
 
-bonus: $(OBJS) $(OBJS_BONUS)
-##	@$(CC) $(CFLAGS) -c $(SRC_BONUS)
-	@ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
-	@ranlib $(NAME)
-	@echo "Bonus added to $(NAME)"
-
 clean:
 	@rm -rf $(OBJDIR)
 	@echo "$(GREEN)✔ Libft Object files deleted$(CLEAR)"
@@ -52,4 +41,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
